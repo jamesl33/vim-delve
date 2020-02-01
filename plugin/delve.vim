@@ -251,7 +251,8 @@ function! delve#runCommand(command, ...)
     endif
 
     let cmd = "cd ". dir . "; "
-    let cmd = cmd ."dlv"
+    let cmd = cmd ."env GOPATH=".$GOPATH
+    let cmd = cmd ." dlv"
     if g:delve_backend != "default"
         let cmd = cmd ." --backend=". g:delve_backend
     endif
